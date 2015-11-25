@@ -86,3 +86,6 @@ for i in newdata:
 #    print(str(i))	
 
 
+if __name__=='__main__':
+    raw_input()
+    
