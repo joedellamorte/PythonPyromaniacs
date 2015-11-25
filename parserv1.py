@@ -12,7 +12,7 @@ Created on Sat Nov 14 14:19:25 2015
 #######################################################################
 import csv
 import course
-import course_filters
+import scheduleclass
 
 
 #######################################################################
@@ -87,5 +87,8 @@ for i in newdata:
 
 
 if __name__=='__main__':
-    raw_input()
+    k=scheduleclass.schedule(courselist)
+    k.filter_by_professor('carruthers')
+    print(k.queue)
+    
     
