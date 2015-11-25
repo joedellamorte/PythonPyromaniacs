@@ -79,8 +79,5 @@ class Course:
                 else:
                     return True
 
-
-
-
-
-
+    def __str__(self):
+        return(str(self.code) + " " + str(self.title) + " " + str(self.days)+ str(self.time))
