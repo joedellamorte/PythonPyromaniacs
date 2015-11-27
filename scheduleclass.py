@@ -67,5 +67,8 @@ class schedule():
                 else:
                     raise ValueError('could not add course time conflict')
             self.taking+=new
-            
+        
+        def remove_course(self,old):
+            while old in self.taking:
+                self.taking.remove(old)
         
