@@ -1,29 +1,8 @@
 __author__ = 'NicholasArnold'
 
 
-def to_twenty_four(time):
-    """Converts a time given as a string in format 'HR:MINam/pm'
-    to an integer between 0 and 2400"""
-    hours = 0
-    hour_min = time[0:-2].split(':')
-    afternoon = time[-2:] == 'pm'
-    hours += int(hour_min[0]) * 100 + int(hour_min[1])
-    if afternoon:
-        hours += 1200
-    return hours
 
 
-def to_twelve(time):
-    "Converts an integer time value between 0 and 2400 to HR:MIN am/pm format"
-    tod = 'am'
-    if time >= 1200:
-        time -= 1200
-        tod = 'pm'
-    if time == 0:
-        time += 1200
-    hour = str(time)[0:-2]
-    minute = str(time)[-2:]
-    return "{}:{} {}".format(hour, minute, tod)
 
 
 class Course:
@@ -52,11 +31,35 @@ class Course:
         self.time = time
         self.dayTime = {}
         for day in self.days:
-            self.dayTime[day] = (to_twenty_four(self.time[0]), to_twenty_four(self.time[1]))
+            self.dayTime[day] = (self.to_twenty_four(self.time[0]), self.to_twenty_four(self.time[1]))
         self.instructor = instructor
 
         self.notes = notes
 
+    def to_twelve(self,time):
+        "Converts an integer time value between 0 and 2400 to HR:MIN am/pm format"
+        tod = 'am'
+        if time >= 1200:
+            time -= 1200
+            tod = 'pm'
+        if time == 0:
+            time += 1200
+        hour = str(time)[0:-2]
+        minute = str(time)[-2:]
+        return "{}:{} {}".format(hour, minute, tod)
+
+
+    def to_twenty_four(self,time):
+        """Converts a time given as a string in format 'HR:MINam/pm'
+        to an integer between 0 and 2400"""
+        hours = 0
+        hour_min = time[0:-2].split(':')
+        afternoon = time[-2:] == 'pm'
+        hours += int(hour_min[0]) * 100 + int(hour_min[1])
+        if afternoon:
+            hours += 1200
+        return hours
+    
     def can_schedule(self, other):
         """
         :param other: other Course to compare
@@ -80,4 +83,7 @@ class Course:
                     return True
 
     def __str__(self):
-        return(str(self.code) + " " + str(self.title) + " " + str(self.days)+ str(self.time))
+        return('~~~'+ str(self.code) + " " + str(self.title) + " " + str(self.days)+ str(self.time)+'~~~')
+    def __repr__(self):
+        return str(self)
+        
