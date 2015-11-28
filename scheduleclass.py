@@ -1,4 +1,3 @@
-__author__ = 'NicholasArnold'
 
 import course
 
