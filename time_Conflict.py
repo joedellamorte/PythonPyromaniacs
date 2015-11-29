@@ -5,6 +5,15 @@ Created on Sat Nov 14 20:00:05 2015
 @author: June
 """
 
+"""
+I created something like this that is built into the Course class in course.py,
+It's a function that compares the object itself to another Course object and
+returns True if they can be scheduled together, and false if not.
+Since I already have something that can understand a basic conflict between two classes,
+We should make something that could iterate over a list of courses and check if none of them have conflicts
+based off of their .can_schedule() attribute.
+
+"""
 
 def timeConflict(schedule,time):
     isTimeConflict = False

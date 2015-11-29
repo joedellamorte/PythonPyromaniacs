@@ -1,5 +1,6 @@
 __author__ = 'NicholasArnold'
 
+
 def to_twelve(self,time):
     "Converts an integer time value between 0 and 2400 to HR:MIN am/pm format"
     tod = 'am'
