@@ -3,18 +3,17 @@ import course
 
 class Search:
     def __init__(self,course_list):
-        self.course_list=course_list
+        self.course_list = course_list
         self.queue = []
-        
-    def filter_by_title(self,title):
-        title=str(title)
-        title=title.lower()
+
+    def filter_by_title(self, title):
+        title = str(title)
+        title = title.lower()
         for section in self.course_list:
             if title in section.title:
                 self.queue.append(section)
-    
-    
-    def filter_by_code(self,code, section=None):
+
+    def filter_by_code(self, code, section=None):
         for section in self.course_list:
             if section is not None:
                 if code in section.code and section in section.section:
@@ -22,20 +21,30 @@ class Search:
             elif code in section.code:
                 self.queue.append(section)
 
-    def filter_by_professor(self,instructor):
-        instructor=str(instructor)
-        instructor=instructor.lower()
+    def filter_by_professor(self, instructor):
+        instructor = str(instructor)
+        instructor = instructor.lower()
         for section in self.course_list:
             if section.instructor.lower() == instructor:
                 self.queue.append(section)
-        
+
+    def no_monday(self):
+        for section in self.queue:
+            if 'Mon' in section.days:
+                self.queue.remove(section)
+
+    def no_friday(self):
+        for section in self.queue:
+            if 'Fri' in section.days:
+                self.queue.remove(section)
+
     def clear_q(self):
         self.queue = []
 
 
 class Schedule:
-    def __init__(self,course_list):
-        self.course_list=course_list
+    def __init__(self, course_list):
+        self.course_list = course_list
         self.taking=[]
 #        self.timeday=[]
 #        self.title=[]

@@ -90,5 +90,3 @@ if __name__=='__main__':
     k=scheduleclass.schedule(courselist)
     k.filter_by_professor('carruthers')
     print(k.queue)
-    
-    
