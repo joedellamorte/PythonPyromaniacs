@@ -1,7 +1,7 @@
-
 import course
 
-class search():
+
+class Search:
     def __init__(self,course_list):
         self.course_list=course_list
         self.queue = []
@@ -30,9 +30,10 @@ class search():
                 self.queue.append(section)
         
     def clear_q(self):
-        self.queue=[]
-    
-class schedule():
+        self.queue = []
+
+
+class Schedule:
     def __init__(self,course_list):
         self.course_list=course_list
         self.taking=[]
@@ -59,15 +60,16 @@ class schedule():
 #        self.time=self.time+new.time
 #        self.instructor=self.instructor+new.instructor
 #        self.notes=self.notes+new.notes
-        def add_course(self,new):
-            for i in self.taking:
-                if new.can_schedule(i):
-                    pass
-                else:
-                    raise ValueError('could not add course time conflict')
-            self.taking+=new
-        
-        def remove_course(self,old):
-            while old in self.taking:
-                self.taking.remove(old)
-        
+
+    def add_course(self, new):
+        for i in self.taking:
+            if new.can_schedule(i):
+                pass
+            else:
+                raise ValueError('could not add course time conflict')
+        self.taking += new
+
+    def remove_course(self, old):
+        while old in self.taking:
+            self.taking.remove(old)
+
