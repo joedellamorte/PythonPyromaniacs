@@ -12,26 +12,16 @@ the User entered """
 ###############################################################################
 ###############################################################################
 
-import numpy as np
-import math
-
 def distance(course,inpt):
     distance = 0
-    alpha = {}
-    count = 0
-    beta = 'abcdefghijklmnopqrstuvwxyz0123456789'
-
-    matrixcour = np.empty(26)
-    matrixinp = np.empty(26)
+    beta = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+'
     
-    for i in range(26):
+    for i in range(len(beta)):
         distance += (inpt.count(beta[i])-course.count(beta[i]))**2
 
-        return distance
+    return distance
 
 
-print(distance("linear algebra","linear algebra"))
-    
     
 
 
