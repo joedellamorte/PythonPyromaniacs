@@ -42,7 +42,7 @@ class Search:
 
     def filter_by_instructor(self, instructor):
         minimumdist=50
-        lowercourse = []
+        lowestcourse = []
         instructor = str(instructor)
         instructor = instructor.lower()
         for section in self.course_list:
@@ -54,7 +54,42 @@ class Search:
                 
 #            if section.instructor.lower() == instructor:
 #                self.queue.append(section)
-
+    def filter_by_college(self, college):
+        minimumdist=50
+        lowestcourse = []
+        college = str(college)
+        college = college.lower()
+        for section in self.course_list:
+            if self.distance(college,section.college)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(college,section.college)
+            elif self.distance(college,section.college)==minimumdist:
+                lowestcourse.append(section)
+                
+    def filter_by_courseNum(self, courseNum):
+        minimumdist=50
+        lowestcourse = []
+        courseNum = str(courseNum)
+        courseNum = courseNum.lower()
+        for section in self.course_list:
+            if self.distance(courseNum,section.courseNum)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(courseNum,section.courseNum)
+            elif self.distance(courseNum,section.courseNum)==minimumdist:
+                lowestcourse.append(section)
+                
+    def filter_by_department(self, dept):
+        minimumdist=50
+        lowestcourse = []
+        dept = str(dept)
+        dept = dept.lower()
+        for section in self.course_list:
+            if self.distance(dept,section.dept)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(dept,section.dept)
+            elif self.distance(dept,section.dept)==minimumdist:
+                lowestcourse.append(section)
+                
     def no_monday(self):
         for section in self.queue:
             if 'Mon' in section.days:

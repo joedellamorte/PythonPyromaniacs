@@ -42,8 +42,11 @@ class Course:
         :param notes: Optional notes for course
         :return:
         """
+        self.college = code.split()[0]
+        self.department = code.split()[1]
+        self.courseNum =code.split()[2]
         self.title = title
-        self.code = code.split(' ')
+        #self.code = code.split(' ')
         self.section = section
         self.typ = typ
         self.cred_hrs = cred
