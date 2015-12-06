@@ -62,7 +62,12 @@ def prompt_user():
     title_6 = Entry(root,textvariable=ttl_6).grid(column=5, row=6)
     
     def collect_data():
-        class1 = {'college':col_1.get(),'department':dep_1.get(),"course":crs_1.get()}
+        class1 = {'college':[col_1.get(),col_2.get(),col_3.get(),col_4.get(),col_5.get(),col_6.get()],
+        'department':[dep_1.get(),dep_2.get(),dep_3.get(),dep_4.get(),dep_5.get(),dep_6.get()],
+        "course":[crs_1.get(),crs_2.get(),crs_3.get(),crs_4.get(),crs_5.get(),crs_6.get()],
+        "instructor":[instr_1.get(),instr_2.get(),instr_3.get(),instr_4.get(),instr_5.get(),instr_6.get()],
+        "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()]}
+        
         return class1
     
     Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid()
