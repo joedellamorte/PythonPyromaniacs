@@ -5,13 +5,32 @@ class Search:
     def __init__(self,course_list):
         self.course_list = course_list
         self.queue = []
+        
+    def distance(self,course,inpt):
+        distance = 0
+        beta = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+'
+        
+        for i in range(len(beta)):
+            distance += (inpt.count(beta[i])-course.count(beta[i]))**2
+    
+        return distance
 
     def filter_by_title(self, title):
         title = str(title)
         title = title.lower()
+        minimumdist=50
+        lowestcourse=[]
         for section in self.course_list:
-            if title in section.title:
-                self.queue.append(section)
+            if self.distance(title,section.title)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(title,section.title)
+            elif self.distance(title,section.title)==minimumdist:
+                lowestcourse.append(section)
+                
+                
+            
+#            if title in section.title:
+#                self.queue.append(section)
 
     def filter_by_code(self, code, section=None):
         for section in self.course_list:
