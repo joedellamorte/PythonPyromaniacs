@@ -32,20 +32,28 @@ class Search:
 #            if title in section.title:
 #                self.queue.append(section)
 
-    def filter_by_code(self, code, section=None):
-        for section in self.course_list:
-            if section is not None:
-                if code in section.code and section in section.section:
-                    self.queue.append(section)
-            elif code in section.code:
-                self.queue.append(section)
+#    def filter_by_code(self, code, section=None):
+#        for section in self.course_list:
+#            if section is not None:
+#                if code in section.code and section in section.section:
+#                    self.queue.append(section)
+#            elif code in section.code:
+#                self.queue.append(section)
 
-    def filter_by_professor(self, instructor):
+    def filter_by_instructor(self, instructor):
+        minimumdist=50
+        lowercourse = []
         instructor = str(instructor)
         instructor = instructor.lower()
         for section in self.course_list:
-            if section.instructor.lower() == instructor:
-                self.queue.append(section)
+            if self.distance(instructor,section.instructor)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(instructor,section.instructor)
+            elif self.distance(instructor,section.instructor)==minimumdist:
+                lowestcourse.append(section)
+                
+#            if section.instructor.lower() == instructor:
+#                self.queue.append(section)
 
     def no_monday(self):
         for section in self.queue:
