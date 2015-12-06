@@ -48,8 +48,8 @@ department_6 = Entry(root,textvariable=dep_6).grid(column=2, row=6)
 course_6 = Entry(root,textvariable=crs_6).grid(column=3, row=6)
 
 def collect_data():
-    class1 = col_1.get() + ' ' + dep_1.get() + ' ' + crs_1.get()
-    print (class1)
+    class1 = {'college':col_1.get(),'department':dep_1.get(),"course":crs_1.get()}
+    return class1
 
 Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid()
 
