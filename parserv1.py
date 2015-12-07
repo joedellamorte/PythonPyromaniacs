@@ -87,7 +87,7 @@ for i in newdata:
 
 
 if __name__=='__main__':
-    k=scheduleclass.schedule(courselist)
+    k=scheduleclass.search(courselist)
     k.filter_by_professor('carruthers')
     print(k.queue)
     
