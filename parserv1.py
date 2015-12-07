@@ -13,6 +13,7 @@ Created on Sat Nov 14 14:19:25 2015
 import csv
 import course
 import scheduleclass
+import input_window
 
 
 #######################################################################
@@ -68,7 +69,6 @@ for i in newdata:
 #        print ("i has this many elements : " +str(len(i)))
 #        print (i)
         
-        
 #######################################################################
 # if the number of columns was incorrect or something we run through this code
 # and print some stuff out to see
@@ -86,9 +86,9 @@ for i in newdata:
 #    print(str(i))	
 
 
+
 if __name__=='__main__':
     k=scheduleclass.search(courselist)
     k.filter_by_professor('carruthers')
     print(k.queue)
-    
     
