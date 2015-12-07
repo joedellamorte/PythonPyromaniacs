@@ -93,6 +93,6 @@ for i in newdata:
 
 if __name__=='__main__':
     k=scheduleclass.search(courselist)
-    print('the queue is '+str(len(k.queue))+' items long')
-    k.sortof('carruthers')
+    #print('the queue is '+str(len(k.queue))+' items long')
+    k.sortof('eng','ek','128','','carruthers')
 

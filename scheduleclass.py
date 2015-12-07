@@ -1,5 +1,5 @@
 import course
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 class search:
     def __init__(self,course_list):
@@ -30,10 +30,11 @@ class search:
     def sortof(self,col='',dep='',crseNum='',section='',instructor='',title=''):
         self.sorted_queue=[]
         self.queue.sort(key=lambda i:self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
-        print(len(self.queue))        
+        #print(len(self.queue))        
         for i in self.queue:
             self.sorted_queue.append(self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
-        plt.scatter(self.sorted_queue)
+        plt.plot(self.sorted_queue[:100])
+        plt.show()
             
 #            if title in section.title:
 #                self.queue.append(section)
