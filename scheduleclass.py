@@ -6,12 +6,12 @@ class Search:
         self.course_list = course_list
         self.queue = course_list
         
-    def distance(self,course,inpt):
+    def distance(self,crse,inpt):
         distance = 0
         beta = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+'
         
         for i in range(len(beta)):
-            distance += (inpt.count(beta[i])-course.count(beta[i]))**2
+            distance += (inpt.count(beta[i])-crse.count(beta[i]))**2
     
         return float(distance**(1/2))
 

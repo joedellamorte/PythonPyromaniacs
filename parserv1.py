@@ -13,6 +13,7 @@ Created on Sat Nov 14 14:19:25 2015
 import csv
 import course
 import scheduleclass
+import input_window
 
 
 #######################################################################
@@ -87,13 +88,16 @@ for i in newdata:
 
 
 if __name__=='__main__':
-    user = 'carruthers'
+
     k=scheduleclass.search(courselist)
-    while user != 'exit':
-        k.filter_by_professor(user)
-        k.filter_by_title(user)
-        #k.filter_by_code(user)
-        print(k.queue)
-        user=input('search for ')
+    data = input_window.prompt_user()
+        
+    
+#    while user != 'exit':
+#        k.filter_by_professor(user)
+#        k.filter_by_title(user)
+#        #k.filter_by_code(user)
+#        print(k.queue)
+#        user=input('search for ')
     
     
