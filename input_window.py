@@ -15,6 +15,7 @@ def prompt_user():
     col_4 = StringVar(); dep_4 = StringVar(); crs_4 = StringVar();sect_4 = StringVar();instr_4 = StringVar(); ttl_4 = StringVar()
     col_5 = StringVar(); dep_5 = StringVar(); crs_5 = StringVar();sect_5 = StringVar();instr_5 = StringVar(); ttl_5 = StringVar()
     col_6 = StringVar(); dep_6 = StringVar(); crs_6 = StringVar();sect_6 = StringVar();instr_6 = StringVar(); ttl_6 = StringVar()
+    no_monday = IntVar() ; no_friday = IntVar()
     
     for i in range(6):
         Label(root, text=("Course", str(i+1))).grid(row=(i+1),column=0)
@@ -68,17 +69,28 @@ def prompt_user():
     instructor_6 = Entry(root,textvariable=instr_6).grid(column=5, row=6)
     title_6 = Entry(root,textvariable=ttl_6).grid(column=6, row=6)
     
+    misc_label = Label(root, text="").grid(row=7, columnspan=6)
+    more_options = Label(root, text="Other Preferences:").grid(column=2,row=8,sticky=W)    
+    no_mon = Checkbutton(root,text="No Monday Classes", variable=no_monday).grid(column=3, row=8)
+    no_fri = Checkbutton(root,text="No Friday Classes", variable=no_friday).grid(column=4, row=8)    
+
+    
     def collect_data():
         class1 = {'college':[col_1.get(),col_2.get(),col_3.get(),col_4.get(),col_5.get(),col_6.get()],
         'department':[dep_1.get(),dep_2.get(),dep_3.get(),dep_4.get(),dep_5.get(),dep_6.get()],
         "course":[crs_1.get(),crs_2.get(),crs_3.get(),crs_4.get(),crs_5.get(),crs_6.get()],
         "instructor":[instr_1.get(),instr_2.get(),instr_3.get(),instr_4.get(),instr_5.get(),instr_6.get()],
-        "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()]}
-        
+        "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()], 
+        "section":[sect_1.get(),sect_2.get(),sect_3.get(),sect_4.get(),sect_5.get(),sect_6.get()],
+        "other":[no_monday.get(), no_friday.get()]}
+        print (class1)
         return class1
     
-    Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid()
+    Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
     
-        
+       
     root.mainloop()
     return(collect_data())
+
+L = prompt_user()
+#print (L)
