@@ -83,7 +83,7 @@ def prompt_user():
         "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()], 
         "section":[sect_1.get(),sect_2.get(),sect_3.get(),sect_4.get(),sect_5.get(),sect_6.get()],
         "other":[no_monday.get(), no_friday.get()]}
-        print (class1)
+        #print (class1)
         return class1
     
     Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
@@ -92,5 +92,5 @@ def prompt_user():
     root.mainloop()
     return(collect_data())
 
-L = prompt_user()
+#L = prompt_user()
 #print (L)
