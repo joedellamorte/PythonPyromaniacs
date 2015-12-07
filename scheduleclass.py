@@ -6,12 +6,12 @@ class Search:
         self.course_list = course_list
         self.queue = []
         
-    def distance(self,course,inpt):
+    def distance(self,crse,inpt):
         distance = 0
         beta = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+'
         
         for i in range(len(beta)):
-            distance += (inpt.count(beta[i])-course.count(beta[i]))**2
+            distance += (inpt.count(beta[i])-crse.count(beta[i]))**2
     
         return distance
 
@@ -51,6 +51,7 @@ class Search:
                 minimumdist=self.distance(instructor,section.instructor)
             elif self.distance(instructor,section.instructor)==minimumdist:
                 lowestcourse.append(section)
+        
                 
 #            if section.instructor.lower() == instructor:
 #                self.queue.append(section)
@@ -89,6 +90,7 @@ class Search:
                 minimumdist=self.distance(dept,section.dept)
             elif self.distance(dept,section.dept)==minimumdist:
                 lowestcourse.append(section)
+                
                 
     def no_monday(self):
         for section in self.queue:
