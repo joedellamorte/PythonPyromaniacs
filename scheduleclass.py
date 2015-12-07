@@ -1,10 +1,10 @@
 import course
 import matplotlib as plt
 
-class Search:
+class search:
     def __init__(self,course_list):
         self.course_list = course_list
-        self.queue = course_list
+        self.queue = self.course_list
         
     def distance(self,crse,inpt):
         distance = 0
@@ -29,7 +29,8 @@ class Search:
                 
     def sortof(self,col='',dep='',crseNum='',section='',instructor='',title=''):
         self.sorted_queue=[]
-        self.queue=self.queue.sort(key=lambda i:self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
+        self.queue.sort(key=lambda i:self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
+        print(len(self.queue))        
         for i in self.queue:
             self.sorted_queue.append(self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
         plt.scatter(self.sorted_queue)
