@@ -23,7 +23,7 @@ def cal_outline():      #creates a blank calander that we can eventually plot po
     time = ['7:00 am', '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 am', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm'] 
     for x in range(len(time)):
         Label(root,text=time[x]).grid(rowspan=2, row=x,column=0)
-        
+    Label(root,text='', height=3,  width=15, background='red').grid(rowspan=2,row=4, column=5, sticky=N)    
     root.mainloop()
 #cal_outline() 
  
@@ -31,6 +31,7 @@ def all_options():          #creates window with a bunch of buttons that are eve
     base=Tk()               #another window with a schedule possibiliy on it, but it doesn't work right now
     for i in range(10):
         Button(base,text=('Option', str(i)), relief=GROOVE,width=15, height=2, command = print('hi')).grid()
+    
     
 #    Label(root,text='', width=120, height=2).grid(row=0, columnspan=9)
 #    
@@ -44,4 +45,4 @@ def all_options():          #creates window with a bunch of buttons that are eve
 #        
     base.mainloop()
   
-all_options()
+cal_outline()

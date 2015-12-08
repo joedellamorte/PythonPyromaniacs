@@ -27,7 +27,7 @@ class Search:
 #            elif self.distance(title,section.title)==minimumdist:
 #                lowestcourse.append(section)
                 
-    def sort(self,col,dep,crseNum,section,instructor,title):
+    def sortof(self,col='',dep='',crseNum='',section='',instructor='',title=''):
         self.sorted_queue=[]
         self.queue=self.queue.sort(key=lambda i:self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
         for i in self.queue:

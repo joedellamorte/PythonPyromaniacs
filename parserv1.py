@@ -69,7 +69,6 @@ for i in newdata:
 #        print ("i has this many elements : " +str(len(i)))
 #        print (i)
         
-        
 #######################################################################
 # if the number of columns was incorrect or something we run through this code
 # and print some stuff out to see
@@ -87,12 +86,16 @@ for i in newdata:
 #    print(str(i))	
 
 
-if __name__=='__main__':
 
-    k=scheduleclass.search(courselist)
+if __name__=='__main__':
+    print(len(courselist))
+    k=scheduleclass.Search(courselist)
+    #print(len(k.course_list))
     data = input_window.prompt_user()
-        
-    
+    k.sortof('eng','ek','107','A1')
+#    
+#    user='carruthers'
+#    k=scheduleclass.Search(courselist)
 #    while user != 'exit':
 #        k.filter_by_professor(user)
 #        k.filter_by_title(user)

@@ -84,13 +84,15 @@ def prompt_user():
         "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()], 
         "section":[sect_1.get(),sect_2.get(),sect_3.get(),sect_4.get(),sect_5.get(),sect_6.get()],
         "other":[no_monday.get(), no_friday.get()]}
+
         MyInfo['classes']=class1
         root.destroy()
-    
     Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
 
-    root.mainloop()    
+    root.mainloop()   
     
+
 
 prompt_user()
 print (MyInfo)
+
