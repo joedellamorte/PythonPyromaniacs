@@ -14,6 +14,7 @@ import csv
 import course
 import scheduleclass
 import input_window
+import Permutator
 
 
 #######################################################################
@@ -62,9 +63,13 @@ badCount = 0
 for i in newdata:
     try:
         k={'course':i[0],'title':i[1],'professor':i[2],'credit':i[3],'type':i[4],'students':i[5],'seatingcapacity':i[6],'building':i[7],'room':i[8],'requestedbuilding':i[9],'requested room':i[10],'days':i[11], 'time':(i[12], i[13]) ,'notes':i[14],'unitdept':i[15],'startdate':i[16],'enddate':i[17]}
+#        print('****1')        
         dictionarydata.append(k)
+#        print('****2')
         c = course.Course(k['title'], k['course'],k['course'],k['type'], k['credit'],(k['building'], k['room']), k['days'], k['time'], k['professor'], k['notes'])
+#        print('****3')        
         courselist.append(c)
+#        print('****4')
         goodCnt+=1
 #        print ("i has this many elements : " +str(len(i)))
 #        print (i)
@@ -84,23 +89,23 @@ for i in newdata:
 #
 #for i in f:
 #    print(str(i))	
+        
+        
+        
+###############################
+#collegelist=[]
+#for i in courselist:
+#    if not(i.courseNum in collegelist):
+#        collegelist.append(i.courseNum)
+#print(collegelist)
+#####################################
+
 
 
 
 if __name__=='__main__':
-    print(len(courselist))
-    k=scheduleclass.Search(courselist)
-    #print(len(k.course_list))
-    data = input_window.prompt_user()
-    k.sortof('eng','ek','107','A1')
-#    
-#    user='carruthers'
-#    k=scheduleclass.Search(courselist)
-#    while user != 'exit':
-#        k.filter_by_professor(user)
-#        k.filter_by_title(user)
-#        #k.filter_by_code(user)
-#        print(k.queue)
-#        user=input('search for ')
-    
-    
+    k=scheduleclass.search(courselist)
+    #print('the queue is '+str(len(k.queue))+' items long')
+    Permutator.permutator(k.finder('CAS','MA','226','',''),'','','')
+    #k.sortof('','','','','c')
+
