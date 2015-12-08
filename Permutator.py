@@ -9,7 +9,15 @@ def indexer(sched):
     maikeys=list(sched.keys())[:]
     length=len(maikeys)
     indexing=[0]*length
-    scheduleobjects=[]
+    scheduleobjects=[scheduleclass.Schedule()]
+    for i in range(length):
+        try:
+            scheduleobjects[-1].add_course(sched[maikeys[0]][indexing[0]])
+            print('pass')
+        except:
+            #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
+            print('fail')    
+    
     while indexing[-1]!=len(sched[maikeys[-1]]):
         cary=1
         for i in range(length):

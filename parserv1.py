@@ -104,8 +104,10 @@ for i in newdata:
 
 
 if __name__=='__main__':
+    userinput=input_window.prompt_user()
+    print(userinput)
     k=scheduleclass.search(courselist)
     #print('the queue is '+str(len(k.queue))+' items long')
-    Permutator.permutator(k.finder('CAS','MA','226','',''),'','','')
+    Permutator.permutator(k.finder(userinput['college'][0],userinput['department'][0],userinput['course'][0],userinput['section'][0],userinput['instructor'][0],userinput['Title'][0]),'','','')
     #k.sortof('','','','','c')
 
