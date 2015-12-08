@@ -4,10 +4,11 @@ Created on Fri Nov 27 22:03:40 2015
 
 @author: Rahmeh
 """
-MyInfo={}
+
 
 from tkinter import *
 def prompt_user():
+    MyInfo={}
     root=Tk()
     
     col_1 = StringVar(); dep_1 = StringVar(); crs_1 = StringVar();sect_1 = StringVar();instr_1 = StringVar(); ttl_1 = StringVar()
@@ -87,12 +88,13 @@ def prompt_user():
 
         MyInfo['classes']=class1
         root.destroy()
-    Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
-
-    root.mainloop()   
+        
     
+    Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
+    root.mainloop()   
+    return MyInfo    
 
 
-prompt_user()
-print (MyInfo)
+l=prompt_user()
+print (l)
 
