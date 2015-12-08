@@ -88,11 +88,15 @@ for i in newdata:
 #
 #for i in f:
 #    print(str(i))	
-
-
+collegelist=[]
+for i in courselist:
+    if not(i.college in collegelist):
+        collegelist.append(i.college)
+print(collegelist)
 
 if __name__=='__main__':
     k=scheduleclass.search(courselist)
     #print('the queue is '+str(len(k.queue))+' items long')
     k.sortof('eng','ek','128','','carruthers')
+    k.sortof('','','','','c')
 

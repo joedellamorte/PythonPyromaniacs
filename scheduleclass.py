@@ -5,10 +5,13 @@ class search:
     def __init__(self,course_list):
         self.course_list = course_list
         self.queue = self.course_list
+        self.coldictionary=['CAS', 'CFA', 'CGS', 'COM', 'ENG', 'EOP', 'GMS', 'GRS', 'GSM', 'KHC', 'LAW', 'MET', 'OTP', 'PDP', 'SAR', 'SED', 'SHA', 'SMG', 'SPH', 'SSW', 'STH']
         
     def distance(self,crse,inpt):
         distance = 0
         beta = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+'
+        crse=crse.lower()
+        inpt=inpt.lower()
         
         for i in range(len(beta)):
             distance += (inpt.count(beta[i])-crse.count(beta[i]))**2
@@ -26,14 +29,30 @@ class search:
 #                minimumdist=self.distance(title,section.title)
 #            elif self.distance(title,section.title)==minimumdist:
 #                lowestcourse.append(section)
+    '''               
                 
+    def finder(self,col='',dep='',crseNum='',section='',instructor='',title=''):
+        coldist=20
+        if col.upper() in self.coldictionary:
+            
+        if col != '':
+            for i in self.coldictionary:
+                if self.distance(col,i.lower())<coldist:
+                    littlest=i.lower()
+                    coldist=
+        for i in self.queue:
+            if c
+        
+    '''
+        
     def sortof(self,col='',dep='',crseNum='',section='',instructor='',title=''):
         self.sorted_queue=[]
-        self.queue.sort(key=lambda i:self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
+        self.queue.sort(key=lambda i:1*self.distance(i.courseNum,crseNum)+1*self.distance(i.department,dep)+self.distance(i.title,title)+1*self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
         #print(len(self.queue))        
         for i in self.queue:
-            self.sorted_queue.append(self.distance(i.courseNum,crseNum)+self.distance(i.department,dep)+self.distance(i.title,title)+self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
-        plt.plot(self.sorted_queue[:100])
+            self.sorted_queue.append(1*self.distance(i.courseNum,crseNum)+1*self.distance(i.department,dep)+self.distance(i.title,title)+1*self.distance(i.college,col)+self.distance(i.section,section)+self.distance(i.instructor,instructor))
+        plt.plot(self.sorted_queue[:])
+        print(self.queue[:20])
         plt.show()
             
 #            if title in section.title:

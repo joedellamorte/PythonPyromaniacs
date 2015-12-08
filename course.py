@@ -82,7 +82,7 @@ class Course:
                     return True
 
     def __str__(self):
-        return '~~~' + str(self.code) + " " + str(self.title) + " " + str(self.days)+ str(self.time)+'~~~'
+        return '~~~' + str(self.college) + ' ' + str(self.department) + ' ' + str(self.instructor) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+ str(self.time)+'~~~'
 
     def __repr__(self):
         return str(self)
