@@ -5,8 +5,10 @@ Created on Fri Nov 27 22:03:40 2015
 @author: Rahmeh
 """
 
+
 from tkinter import *
 def prompt_user():
+    MyInfo={}
     root=Tk()
     
     col_1 = StringVar(); dep_1 = StringVar(); crs_1 = StringVar();sect_1 = StringVar();instr_1 = StringVar(); ttl_1 = StringVar()
@@ -83,14 +85,16 @@ def prompt_user():
         "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()], 
         "section":[sect_1.get(),sect_2.get(),sect_3.get(),sect_4.get(),sect_5.get(),sect_6.get()],
         "other":[no_monday.get(), no_friday.get()]}
-        #print (class1)
-        return class1
+
+        MyInfo['classes']=class1
+        root.destroy()
+        
     
     Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
-    
-       
-    root.mainloop()
-    return(collect_data())
+    root.mainloop()   
+    return MyInfo    
 
-#L = prompt_user()
-#print (L)
+
+l=prompt_user()
+print (l)
+
