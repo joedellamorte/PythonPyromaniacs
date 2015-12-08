@@ -14,6 +14,7 @@ import csv
 import course
 import scheduleclass
 import input_window
+import Permutator
 
 
 #######################################################################
@@ -105,6 +106,6 @@ for i in newdata:
 if __name__=='__main__':
     k=scheduleclass.search(courselist)
     #print('the queue is '+str(len(k.queue))+' items long')
-    print(k.finder('CAS','MA','226','',''))
+    Permutator.permutator(k.finder('CAS','MA','226','',''),'','','')
     #k.sortof('','','','','c')
 
