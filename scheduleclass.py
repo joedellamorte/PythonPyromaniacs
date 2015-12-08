@@ -168,4 +168,13 @@ class Schedule:
     def remove_course(self, old):
         while old in self.taking:
             self.taking.remove(old)
-
+    
+    def __str__(self):
+        strung=''
+        for i in self.taking:
+            strung+='\n'+str(i)
+        return strung
+    
+    def __repr__(self):
+        return str(self)
+        

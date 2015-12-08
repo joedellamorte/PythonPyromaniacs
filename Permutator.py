@@ -13,10 +13,11 @@ def indexer(sched):
     for i in range(length):
         try:
             scheduleobjects[-1].add_course(sched[maikeys[0]][indexing[0]])
-            print('pass')
+            #print('pass')
         except:
+            pass
             #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
-            print('fail')    
+            #print('fail')    
     
     while indexing[-1]!=len(sched[maikeys[-1]]):
         cary=1
@@ -31,10 +32,11 @@ def indexer(sched):
         for i in range(len(indexing)):
             try:
                 scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
-                print('pass')
+                #print('pass')
             except:
+                pass
                 #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
-                print('fail')
+                #print('fail')
     return scheduleobjects
 def permutator(crs1,crs2,crs3,crs4):
     
@@ -45,24 +47,33 @@ def permutator(crs1,crs2,crs3,crs4):
             sched[name] = [i]
         else:
             sched[name].append(i)
-    for i in crs2:
-        name = i.typ+'2'
-        if name not in sched:
-            sched[name] = [i]
-        else:
-            sched[name].append(i)
-    for i in crs3:
-        name = i.typ+'3'
-        if name not in sched:
-            sched[name] = [i]
-        else:
-            sched[name].append(i)
-    for i in crs4:
-        name = i.typ+'4'
-        if name not in sched:
-            sched[name] = [i]
-        else:
-            sched[name].append(i)
+    try:
+        for i in crs2:
+            name = i.typ+'2'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                sched[name].append(i)
+    except:
+        pass
+    try:
+        for i in crs3:
+            name = i.typ+'3'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                sched[name].append(i)
+    except:
+        pass
+    try:
+        for i in crs4:
+            name = i.typ+'4'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                sched[name].append(i)
+    except:
+        pass
     return indexer(sched)
         
 
