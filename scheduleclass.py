@@ -18,19 +18,54 @@ class search:
             distance += (inpt.count(beta[i])-crse.count(beta[i]))**2
     
         return float(distance**(1/2))
-
-#    def filter_by_title(self, title):
-#        title = str(title)
-#        title = title.lower()
-#        minimumdist=50
-#        lowestcourse=[]
-#        for section in self.course_list:
-#            if self.distance(title,section.title)<minimumdist:
-#                lowestcourse=[section]
-#                minimumdist=self.distance(title,section.title)
-#            elif self.distance(title,section.title)==minimumdist:
-#                lowestcourse.append(section)
-                 
+################################################# *^*  *-*  ^-^ *^*  *-*  ^-^
+                              """June's test code"""
+################################################## *^*  *-*  ^-^ *^*  *-*  ^-^
+    def filter_by_title(self, title, courselist):
+        title = str(title)
+        title = title.lower()
+        minimumdist=50
+        lowestcourse=[]
+        for section in courselist:
+            if self.distance(title,section.title)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(title,section.title)
+            elif self.distance(title,section.title)==minimumdist:
+                lowestcourse.append(section)
+        for element in lowestcourse:
+            if element.title == title:
+                return element
+        return lowestcourse
+    def filter_by_instructor(self, instructor, courselist):
+        minimumdist=50
+        lowestcourse = []
+        instructor = str(instructor)
+        instructor = instructor.lower()
+        for section in courselist:
+            if self.distance(instructor,section.instructor)<minimumdist:
+                lowestcourse=[section]
+                minimumdist=self.distance(instructor,section.instructor)
+            elif self.distance(instructor,section.instructor)==minimumdist:
+                lowestcourse.append(section)
+        for element in courselist:
+            if element.instructor == instructor:
+                return element
+        return lowestcourse
+    def combineFilters(title=None,instr=None):
+        count = 0
+        if title != None and instr!= None:
+            for ttl in title:
+                if instr.count(ttl) > count:
+                    count = instr.count(ttl)
+                    course = ttl
+            return course
+        elif title == None and instr != None:
+            return instr[0]
+        elif instr == None and title != None:
+            return title[0]
+################################################# *^*  *-*  ^-^ *^*  *-*  ^-^
+                              """June's test code"""
+################################################## *^*  *-*  ^-^ *^*  *-*  ^-^
                 
     def finder(self,col='',dep='',crseNum='',section='',instructor='',title=''):
         courselist1=[]
@@ -64,6 +99,7 @@ class search:
                     courselist1.append(i)
                     
         return courselist1
+    
                     
     
         
