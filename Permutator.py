@@ -38,10 +38,28 @@ def permutator(crs1,crs2,crs3,crs4):
     length=len(maikeys)
     indexing=[0]*length
     scheduleobjects=[]
-    counter=
+    
     while indexing[-1]!=len(sched[maikeys[-1]]):
-        sched
+        indexing[]
         
+def indexer(sched):
+    maikeys=list(sched.keys())[:]
+    length=len(maikeys)
+    indexing=[0]*length
+    scheduleobjects=[]
+    while indexing[-1]!=len(sched[maikeys[-1]]):
+        cary=1
+        for i in range(length):
+            if len(sched[maikeys[i]])==indexing[i]:
+                indexing[i]=indexing[i]-len(sched[maikeys[i]])
+                cary=1
+            else:
+                indexing[i]+=cary
+                cary=0
+        scheduleobjects.append(scheduleclass.Schedule())
+        for i in range(len(indexing)):
+            scheduleobjects[-1].add_course(sched[maikeys[i][indexing[i]]])
+            
     def scheduleMaker(num):
         scheduleobjects.append(scheduleclass.Schedule)
         scheduleMaker()
