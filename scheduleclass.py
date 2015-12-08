@@ -153,32 +153,9 @@ class search:
 
 
 class Schedule:
-    def __init__(self, course_list):
-        self.course_list = course_list
+    def __init__(self):
         self.taking=[]
-#        self.timeday=[]
-#        self.title=[]
-#        self.code=[]
-#        self.section=[]
-#        self.typ=[]
-#        self.cred=[]
-#        self.location=[]
-#        self.days=[]
-#        self.time=[]
-#        self.instructor=[]
-#        self.notes=[]
-#    def add_course(self,new):
-#        self.timeday=self.timeday+[(new.time,new.days)]
-#        self.title=self.title+new.title
-#        self.code=self.code+new.code
-#        self.section=self.section+new.section
-#        self.typ=self.typ+new.typ
-#        self.cred=self.cred+new.cred
-#        self.location=self.location+new.location
-#        self.days=self.days+new.days
-#        self.time=self.time+new.time
-#        self.instructor=self.instructor+new.instructor
-#        self.notes=self.notes+new.notes
+
 
     def add_course(self, new):
         for i in self.taking:
