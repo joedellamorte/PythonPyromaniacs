@@ -19,11 +19,11 @@ class Course:
         :return:
         """
         self.college = code.split()[0]
-        self.department = code.split()[1]
-        self.courseNum =code.split()[2]
+        self.department = code.split()[1][:2]
+        self.courseNum =code.split()[1][2:]
         self.title = title
         #self.code = code.split(' ')
-        self.section = section
+        self.section = section.split()[2]
         self.typ = typ
         self.cred_hrs = cred
         self.location = location
@@ -82,7 +82,7 @@ class Course:
                     return True
 
     def __str__(self):
-        return '~~~' + str(self.college) + ' ' + str(self.department) + ' ' + str(self.instructor) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+ str(self.time)+'~~~'
+        return '~~~' + str(self.college) + ' ' + str(self.department) + ' ' + str(self.typ) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+' '+ str(self.section)+'~~~'
 
     def __repr__(self):
         return str(self)
