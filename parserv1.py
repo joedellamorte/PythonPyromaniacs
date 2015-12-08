@@ -90,8 +90,8 @@ for i in newdata:
 #    print(str(i))	
 collegelist=[]
 for i in courselist:
-    if not(i.college in collegelist):
-        collegelist.append(i.college)
+    if not(i.department[:2] in collegelist):
+        collegelist.append(i.department[:2])
 print(collegelist)
 
 if __name__=='__main__':
