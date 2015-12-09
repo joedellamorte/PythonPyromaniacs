@@ -55,6 +55,7 @@ def permutator(crs1,crs2,crs3,crs4):
             else:
                 sched[name].append(i)
     except:
+        print('skipped2')
         pass
     try:
         for i in crs3:
@@ -64,6 +65,7 @@ def permutator(crs1,crs2,crs3,crs4):
             else:
                 sched[name].append(i)
     except:
+        print('skipped3')
         pass
     try:
         for i in crs4:
@@ -73,6 +75,7 @@ def permutator(crs1,crs2,crs3,crs4):
             else:
                 sched[name].append(i)
     except:
+        print('skipped4')
         pass
     return indexer(sched)
         

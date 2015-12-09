@@ -170,11 +170,15 @@ class Schedule:
             self.taking.remove(old)
     
     def __str__(self):
-        strung=''
+        strung='--------\n'
         for i in self.taking:
-            strung+='\n'+str(i)
+            strung+=str(i)+'\n'
+        strung+='--------\n'
+        
         return strung
     
     def __repr__(self):
         return str(self)
+    def __len__(self):
+        return len(self.taking)
         
