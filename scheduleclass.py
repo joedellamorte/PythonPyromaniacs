@@ -37,13 +37,10 @@ class search:
 #                return [element]
 #        return lowestcourse
     def filter_by_instructor(self, instructor, courselist):
-        count = 0
-        for y in instructor:
-            for i in courselist:
-                if not(y.lower() in i.instructor.lower()):
-                    count+=1
-            if count == 0:
+        for x in courselist:
+            if instructor.lower() in x.instructor.lower():
                 return True
+        return False
     def InstructorSched(self,instructor):
         ofTheDead = []
         for joes in self.course_list:

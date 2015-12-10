@@ -119,7 +119,7 @@ if __name__=='__main__':
     #print(possibleschedules[1])
     WifeyNoodles = scheduleclass.search(possibleschedules)
 #    print(WifeyNoodles)
-    WifeyNoodles.InstructorSched(userinput['instructor'])
+    WifeyNoodles.InstructorSched(userinput['instructor'][0])
     print(WifeyNoodles)
     print(len(WifeyNoodles))
     
