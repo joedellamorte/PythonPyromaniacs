@@ -125,5 +125,7 @@ if __name__=='__main__':
 #            break
     for i in newlist:
         print(i)
+        
+    print(len(newlist))
     #k.sortof('','','','','c')
 
