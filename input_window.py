@@ -108,9 +108,9 @@ def prompt_user(class1={'college':['','','','','',''], 'department':['','','',''
     
     Button(root,text='Enter', relief=GROOVE,width=15, height=2, command=collect_data).grid(column=6, sticky=SE)
     root.mainloop()   
-    return MyInfo    
+    return MyInfo['classes']   
 
-
-l=prompt_user()
-print (l)
+if __name__=='__main__':
+    l=prompt_user()
+    print (l)
 
