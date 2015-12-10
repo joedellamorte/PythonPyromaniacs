@@ -94,7 +94,7 @@ def prompt_user(class1={'college':['','','','','',''], 'department':['','','',''
         'department':[dep_1.get(),dep_2.get(),dep_3.get(),dep_4.get(),dep_5.get(),dep_6.get()],
         "course":[crs_1.get(),crs_2.get(),crs_3.get(),crs_4.get(),crs_5.get(),crs_6.get()],
         "instructor":[instr_1.get(),instr_2.get(),instr_3.get(),instr_4.get(),instr_5.get(),instr_6.get()],
-        "title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()], 
+        "Title":[ttl_1.get(),ttl_2.get(),ttl_3.get(),ttl_4.get(),ttl_5.get(),ttl_6.get()], 
         "section":[sect_1.get(),sect_2.get(),sect_3.get(),sect_4.get(),sect_5.get(),sect_6.get()],
         "other":[no_monday.get(), no_friday.get()]}
 
