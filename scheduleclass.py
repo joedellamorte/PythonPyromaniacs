@@ -19,52 +19,61 @@ class search:
     
         return float(distance**(1/2))
 ################################################# *^*  *-*  ^-^ *^*  *-*  ^-^
-                              """June's test code"""
+       #   """June's test code"""
 ################################################## *^*  *-*  ^-^ *^*  *-*  ^-^
-    def filter_by_title(self, title, courselist):
-        title = str(title)
-        title = title.lower()
-        minimumdist=50
-        lowestcourse=[]
-        for section in courselist:
-            if self.distance(title,section.title)<minimumdist:
-                lowestcourse=[section]
-                minimumdist=self.distance(title,section.title)
-            elif self.distance(title,section.title)==minimumdist:
-                lowestcourse.append(section)
-        for element in lowestcourse:
-            if element.title == title:
-                return element
-        return lowestcourse
+#    def filter_by_title(self, title, courselist):
+#        title = str(title)
+#        title = title.lower()
+#        minimumdist=50
+#        lowestcourse=[]
+#        for section in courselist:
+#            if self.distance(title,section.title)<minimumdist:
+#                lowestcourse=[section]
+#                minimumdist=self.distance(title,section.title)
+#            elif self.distance(title,section.title)==minimumdist:
+#                lowestcourse.append(section)
+#        for element in lowestcourse:
+#            if element.title == title:
+#                return [element]
+#        return lowestcourse
     def filter_by_instructor(self, instructor, courselist):
-        minimumdist=50
-        lowestcourse = []
-        instructor = str(instructor)
-        instructor = instructor.lower()
-        for section in courselist:
-            if self.distance(instructor,section.instructor)<minimumdist:
-                lowestcourse=[section]
-                minimumdist=self.distance(instructor,section.instructor)
-            elif self.distance(instructor,section.instructor)==minimumdist:
-                lowestcourse.append(section)
-        for element in courselist:
-            if element.instructor == instructor:
-                return element
-        return lowestcourse
-    def returnCourse(title=None,instr=None): """ONLY FOR INSTRUCTOR AND TITLE"""
-        count = 0
-        if title != None and instr!= None:
-            for ttl in title:
-                if instr.count(ttl) > count:
-                    count = instr.count(ttl)
-                    course = ttl
-            return course
-        elif title == None and instr != None:
-            return instr[0]
-        elif instr == None and title != None:
-            return title[0]
+        for i in courselist:
+            if i.instructor == instructor:
+                return True
+        return False
+    def InstructorSched(self,schedList,instructor):
+        ofTheDead = []
+        for joes in schedList:
+            if self.filter_by_instructor(instructor,joes.taking):
+                ofTheDead.append(joes)
+        return ofTheDead
+                
+                
+#        minimumdist=50
+#        lowestcourse = []
+#        instructor = str(instructor)
+#        instructor = instructor.lower()
+#        for section in courselist:
+#            if self.distance(instructor,section.instructor)<minimumdist:
+#                lowestcourse=[section]
+#                minimumdist=self.distance(instructor,section.instructor)
+#            elif self.distance(instructor,section.instructor)==minimumdist:
+#                lowestcourse.append(section)
+#        return lowestcourse
+#    def returnCourse(title=None,instr=None): 
+#        count = 0
+#        if title != None and instr!= None:
+#            for ttl in title:
+#                if instr.count(ttl) >= count:
+#                    count = instr.count(ttl)
+#                    course1 = ttl
+#            return course1
+#        elif title == None and instr != None:
+#            return instr[0]
+#        elif instr == None and title != None:
+#            return title[0]
 ################################################# *^*  *-*  ^-^ *^*  *-*  ^-^
-                              """June's test code"""
+                      #        """June's test code"""
 ################################################## *^*  *-*  ^-^ *^*  *-*  ^-^
                 
     def finder(self,col='',dep='',crseNum='',section='',instructor='',title=''):
@@ -98,6 +107,20 @@ class search:
                 if crseNum == i.courseNum:
                     courselist1.append(i)
                     
+                ###June's added Code###
+        if not(section.upper() in self.section()):
+            return 'error'
+        else:
+            courselist2=[]
+            for i in courselist1:
+                if section == i.section():
+                    courselist2.append(i)
+        courselist1 = []
+        instrList = filter_by_instructor(instructor,courselist2)
+        ttlList = filter_by_title(title,courselist2)
+        courselist1.append(returnCourse(ttlList,instrList))
+            
+           
         return courselist1
     
                     
