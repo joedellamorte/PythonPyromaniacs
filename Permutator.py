@@ -40,7 +40,7 @@ def indexer(sched):
                 #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
                 #print('fail')
     return scheduleobjects
-def permutator(crs1,crs2,crs3,crs4):
+def permutator(crs1,crs2,crs3,crs4,crs5,crs6):
     
     sched = {}
     for i in crs1:
@@ -82,6 +82,28 @@ def permutator(crs1,crs2,crs3,crs4):
                     sched[name].append(i)
     except:
         print('skipped4')
+        pass
+    try:
+        for i in crs5:
+            name = i.typ+'5'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                if i not in sched[name]:
+                    sched[name].append(i)
+    except:
+        print('skipped5')
+        pass
+    try:
+        for i in crs6:
+            name = i.typ+'6'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                if i not in sched[name]:
+                    sched[name].append(i)
+    except:
+        print('skipped6')
         pass
     return indexer(sched)
         

@@ -112,7 +112,9 @@ if __name__=='__main__':
     ourclassinput2=k.finder(userinput['college'][1],userinput['department'][1],userinput['course'][1])#,userinput['section'][1],userinput['instructor'][1],userinput['Title'][1])
     ourclassinput3=k.finder(userinput['college'][2],userinput['department'][2],userinput['course'][2])#,userinput['section'][2],userinput['instructor'][2],userinput['Title'][2])
     ourclassinput4=k.finder(userinput['college'][3],userinput['department'][3],userinput['course'][3])#,userinput['section'][3],userinput['instructor'][3],userinput['Title'][3])
-    possibleschedules=Permutator.permutator(ourclassinput1,ourclassinput2,ourclassinput3,ourclassinput4)
+    ourclassinput5=k.finder(userinput['college'][4],userinput['department'][4],userinput['course'][4])#,userinput['section'][2],userinput['instructor'][2],userinput['Title'][2])
+    ourclassinput6=k.finder(userinput['college'][5],userinput['department'][5],userinput['course'][5])#,userinput['section'][3],userinput['instructor'][3],userinput['Title'][3])
+    possibleschedules=Permutator.permutator(ourclassinput1,ourclassinput2,ourclassinput3,ourclassinput4,ourclassinput5,ourclassinput6)
     #possibleschedules.sort(key=len,reverse=True) 
     possibleschedules.sort(key=len)
     newlist=[]
