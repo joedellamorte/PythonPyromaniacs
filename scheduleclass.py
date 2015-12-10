@@ -51,7 +51,7 @@ class search:
             if element.instructor == instructor:
                 return element
         return lowestcourse
-    def combineFilters(title=None,instr=None):
+    def returnCourse(title=None,instr=None): """ONLY FOR INSTRUCTOR AND TITLE"""
         count = 0
         if title != None and instr!= None:
             for ttl in title:
