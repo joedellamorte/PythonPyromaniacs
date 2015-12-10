@@ -59,30 +59,49 @@ class Course:
             hours += 1200
         return hours
     
+    def Timeconflict24(self,time1=None,time2=None):
+        if time1==None or time2==None:
+            return True
+        if time1[0] >= time2[0] and time1[0] < time2[1]:
+            return False
+        elif time1[1] > time2[0] and time1[1] <= time2[1]:
+            return False
+        return True    
+    
     def can_schedule(self, other):
         """
         :param other: other Course to compare
         :return: True if course times don't overlap, False if schedule conflict
         """
-        other_times = other.dayTime
-        for day in self.dayTime:
-            if day in other_times:
-                if self.dayTime[day][0] in range(other_times[day][0], other_times[day][1]) or \
-                                self.dayTime[day][1] in range(other_times[day][0], other_times[day][1]):
-                    return False
-
-                elif other_times[day][0] in range(self.dayTime[day][0], self.dayTime[day][1]) or \
-                                other_times[day][1] in range(self.dayTime[day][0], self.dayTime[day][1]):
-                    return False
-
-                elif self.dayTime[day][0] == other_times[day][0] or self.dayTime[day][1] == other_times[day][1]:
-                    return False
-
+        
+        for day in self.dayTime.keys():
+            if day in self.dayTime.keys() and day in other.dayTime.keys():
+                if self.Timeconflict24(self.dayTime[day],other.dayTime[day]):
+                    pass
                 else:
-                    return True
+                    return False
+            else:
+                pass
+        return True
+
+#        isTimeConflict = False
+#        sched = [] 
+#    
+#        if time[0] >= sched[count] and time[0] < sched[count+1]:
+#            for days in schedule[count][2]:
+#                for check in time[2]:
+#                    if days == check:
+#                        isTimeConflict = True
+#        elif time[1] > sched[count] and time[1] <= sched[count+1]:
+#            for days in schedule[count][2]:
+#                for check in time[2]:
+#                    if days == check:
+#                        isTimeConflict = True
+#            count += 2
+#        return isTimeConflict
 
     def __str__(self):
-        return '~~~' + str(self.college) + ' ' + str(self.department) + ' ' + str(self.typ) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+' '+ str(self.section)+'~~~'
+        return '~~~' + str(self.dayTime) + ' ' + str(self.typ) + ' '  + str(self.college) + ' ' + str(self.department) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+' '+ str(self.section)+'~~~'
 
     def __repr__(self):
         return str(self)

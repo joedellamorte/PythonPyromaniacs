@@ -93,7 +93,7 @@ num_schedules = random.randint(1,10)
 
 for schedules in range(num_schedules):
     name = 'Schedule'+ (str(schedules))
-    Button(master, text = name, command = cal_outline).grid(row = schedules, column = 1)
+    Button(master, text = name, command = cal_outline).grid(row = schedules+1, column = 1)
 label_courses = Label (master, text = 'Course Choices').grid(row = 0, column = 1)
 mainloop()
 

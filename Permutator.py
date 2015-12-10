@@ -9,7 +9,16 @@ def indexer(sched):
     maikeys=list(sched.keys())[:]
     length=len(maikeys)
     indexing=[0]*length
-    scheduleobjects=[]
+    scheduleobjects=[scheduleclass.Schedule()]
+    for i in range(length):
+        try:
+            scheduleobjects[-1].add_course(sched[maikeys[0]][indexing[0]])
+            #print('pass')
+        except:
+            pass
+            #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
+            #print('fail')    
+    
     while indexing[-1]!=len(sched[maikeys[-1]]):
         cary=1
         for i in range(length):
@@ -23,10 +32,13 @@ def indexer(sched):
         for i in range(len(indexing)):
             try:
                 scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
-                print('pass')
+                #print('now we see most, we did it dadadadadadadada')
             except:
                 #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
-                print('fail')
+                #print('we DDDDDDIIIIIIIEEEEEDDDDDD')
+                pass
+                #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
+                #print('fail')
     return scheduleobjects
 def permutator(crs1,crs2,crs3,crs4):
     
@@ -37,24 +49,36 @@ def permutator(crs1,crs2,crs3,crs4):
             sched[name] = [i]
         else:
             sched[name].append(i)
-    for i in crs2:
-        name = i.typ+'2'
-        if name not in sched:
-            sched[name] = [i]
-        else:
-            sched[name].append(i)
-    for i in crs3:
-        name = i.typ+'3'
-        if name not in sched:
-            sched[name] = [i]
-        else:
-            sched[name].append(i)
-    for i in crs4:
-        name = i.typ+'4'
-        if name not in sched:
-            sched[name] = [i]
-        else:
-            sched[name].append(i)
+    try:
+        for i in crs2:
+            name = i.typ+'2'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                sched[name].append(i)
+    except:
+        print('skipped2')
+        pass
+    try:
+        for i in crs3:
+            name = i.typ+'3'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                sched[name].append(i)
+    except:
+        print('skipped3')
+        pass
+    try:
+        for i in crs4:
+            name = i.typ+'4'
+            if name not in sched:
+                sched[name] = [i]
+            else:
+                sched[name].append(i)
+    except:
+        print('skipped4')
+        pass
     return indexer(sched)
         
 

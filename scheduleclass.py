@@ -222,9 +222,24 @@ class Schedule:
                 pass
             else:
                 raise ValueError('could not add course time conflict')
+        if new in self.taking:
+            raise ValueError('already have that class')
         self.taking += [new]
 
     def remove_course(self, old):
         while old in self.taking:
             self.taking.remove(old)
-
+    
+    def __str__(self):
+        strung='--------\n'
+        for i in self.taking:
+            strung+=str(i)+'\n'
+        strung+='--------\n'
+        
+        return strung
+    
+    def __repr__(self):
+        return str(self)
+    def __len__(self):
+        return len(self.taking)
+        
