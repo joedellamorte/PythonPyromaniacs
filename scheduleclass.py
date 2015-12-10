@@ -37,14 +37,17 @@ class search:
 #                return [element]
 #        return lowestcourse
     def filter_by_instructor(self, instructor, courselist):
-        for i in courselist:
-            if i.instructor.lower() in instructor.lower():
+        count = 0
+        for y in instructor:
+            for i in courselist:
+                if not(y.lower() in i.instructor.lower()):
+                    count+=1
+            if count == 0:
                 return True
-        return False
     def InstructorSched(self,instructor):
         ofTheDead = []
         for joes in self.course_list:
-            if self.filter_by_instructor(instructor,joes.taking):
+            if not(self.filter_by_instructor(instructor,joes.taking)):
                 ofTheDead.append(joes)
         self.course_list = ofTheDead
 
@@ -55,7 +58,8 @@ class search:
         return toprint
     def __repr__(self):
         return str(self)
-                
+    def __len__(self):
+        return len(self.course_list)
 #        minimumdist=50
 #        lowestcourse = []
 #        instructor = str(instructor)

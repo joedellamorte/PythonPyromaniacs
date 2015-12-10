@@ -119,8 +119,9 @@ if __name__=='__main__':
     #print(possibleschedules[1])
     WifeyNoodles = scheduleclass.search(possibleschedules)
 #    print(WifeyNoodles)
-    WifeyNoodles.InstructorSched(userinput['instructor'][0])
+    WifeyNoodles.InstructorSched(userinput['instructor'])
     print(WifeyNoodles)
+    print(len(WifeyNoodles))
     
     #k.sortof('','','','','c')
 
