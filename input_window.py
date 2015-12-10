@@ -34,13 +34,13 @@ def prompt_user(class1={'college':['','','','','',''], 'department':['','','',''
     Label(root, text="Title").grid(row=0, column=6)
        
     college_1 = Entry(root,textvariable=col_1).grid(column=1, row=1)
+    department_1 = Entry(root,textvariable=dep_1).grid(column=2, row=1)
     course_1 = Entry(root,textvariable=crs_1).grid(column=3, row=1)
     section_1 = Entry(root,textvariable=sect_1).grid(column=4, row=1)
     instructor_1 = Entry(root,textvariable=instr_1).grid(column=5, row=1)
     title_1 = Entry(root,textvariable=ttl_1).grid(column=6, row=1)
     
     college_2 = Entry(root,textvariable=col_2).grid(column=1, row=2)
-    department_1 = Entry(root,textvariable=dep_1).grid(column=2, row=1)
     department_2 = Entry(root,textvariable=dep_2).grid(column=2, row=2)
     course_2 = Entry(root,textvariable=crs_2).grid(column=3, row=2)
     section_2 = Entry(root,textvariable=sect_2).grid(column=4, row=2)
