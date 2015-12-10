@@ -67,22 +67,25 @@ class Course:
         other_times = other.dayTime
         for day in self.dayTime:
             if day in other_times:
-                if self.dayTime[day][0] in range(other_times[day][0], other_times[day][1]) or \
-                                self.dayTime[day][1] in range(other_times[day][0], other_times[day][1]):
+                if self.dayTime[day][0] in range(other_times[day][0]+1, other_times[day][1]-1) or \
+                                self.dayTime[day][1] in range(other_times[day][0]+1, other_times[day][1]-1):
+                    #print('timecontli3333333333')
                     return False
 
-                elif other_times[day][0] in range(self.dayTime[day][0], self.dayTime[day][1]) or \
-                                other_times[day][1] in range(self.dayTime[day][0], self.dayTime[day][1]):
+                elif other_times[day][0] in range(self.dayTime[day][0]+1, self.dayTime[day][1]-1) or \
+                                other_times[day][1] in range(self.dayTime[day][0]+1, self.dayTime[day][1]-1):
+                    #print('timecontli22222222')
                     return False
 
-                elif self.dayTime[day][0] == other_times[day][0] or self.dayTime[day][1] == other_times[day][1]:
-                    return False
+#                elif self.dayTime[day][0] == other_times[day][0] or self.dayTime[day][1] == other_times[day][1]:
+#                    print('timecontli1111111')
+#                    return False
 
                 else:
                     return True
 
     def __str__(self):
-        return '~~~' + str(self.college) + ' ' + str(self.department) + ' ' + str(self.typ) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+' '+ str(self.section)+'~~~'
+        return '~~~' + str(self.dayTime) + ' ' + str(self.typ) + ' '  + str(self.college) + ' ' + str(self.department) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+' '+ str(self.section)+'~~~'
 
     def __repr__(self):
         return str(self)

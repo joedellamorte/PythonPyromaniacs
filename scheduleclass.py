@@ -163,6 +163,8 @@ class Schedule:
                 pass
             else:
                 raise ValueError('could not add course time conflict')
+        if new in self.taking:
+            raise ValueError('already have that class')
         self.taking += [new]
 
     def remove_course(self, old):
