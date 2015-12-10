@@ -113,14 +113,15 @@ if __name__=='__main__':
     ourclassinput3=k.finder(userinput['college'][2],userinput['department'][2],userinput['course'][2])#,userinput['section'][2],userinput['instructor'][2],userinput['Title'][2])
     ourclassinput4=k.finder(userinput['college'][3],userinput['department'][3],userinput['course'][3])#,userinput['section'][3],userinput['instructor'][3],userinput['Title'][3])
     possibleschedules=Permutator.permutator(ourclassinput1,ourclassinput2,ourclassinput3,ourclassinput4)
-    possibleschedules.sort(key=len,reverse=True)  
+    #possibleschedules.sort(key=len,reverse=True) 
+    possibleschedules.sort(key=len)
     newlist=[]
     for i in possibleschedules:
-#        if len(i)==len(possibleschedules[-1]):
-#            newlist.append(i)
+        if len(i)==len(possibleschedules[-1]):
+            newlist.append(i)
 #        else:
 #            break
-#    for i in newlist:
+    for i in newlist:
         print(i)
     #k.sortof('','','','','c')
 
