@@ -32,8 +32,10 @@ def indexer(sched):
         for i in range(len(indexing)):
             try:
                 scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
-                #print('pass')
+                print('now we see most, we did it dadadadadadadada')
             except:
+                #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
+                print('we DDDDDDIIIIIIIEEEEEDDDDDD')
                 pass
                 #scheduleobjects[-1].add_course(sched[maikeys[i]][indexing[i]])
                 #print('fail')
