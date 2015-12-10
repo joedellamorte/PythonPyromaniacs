@@ -115,6 +115,12 @@ if __name__=='__main__':
     possibleschedules=Permutator.permutator(ourclassinput1,ourclassinput2,ourclassinput3,ourclassinput4)
     possibleschedules.sort(key=len)  
     for i in possibleschedules:
-        print(i)
+        pass
+    #print(possibleschedules[1])
+    WifeyNoodles = scheduleclass.search(possibleschedules)
+#    print(WifeyNoodles)
+    WifeyNoodles.InstructorSched(userinput['instructor'][0])
+    print(WifeyNoodles)
+    
     #k.sortof('','','','','c')
 

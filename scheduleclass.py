@@ -38,16 +38,23 @@ class search:
 #        return lowestcourse
     def filter_by_instructor(self, instructor, courselist):
         for i in courselist:
-            if i.instructor == instructor:
+            if i.instructor.lower() in instructor.lower():
                 return True
         return False
-    def InstructorSched(self,schedList,instructor):
+    def InstructorSched(self,instructor):
         ofTheDead = []
-        for joes in schedList:
+        for joes in self.course_list:
             if self.filter_by_instructor(instructor,joes.taking):
                 ofTheDead.append(joes)
-        return ofTheDead
-                
+        self.course_list = ofTheDead
+
+    def __str__ (self):
+        toprint=''
+        for i in self.course_list:
+            toprint+=str(i)
+        return toprint
+    def __repr__(self):
+        return str(self)
                 
 #        minimumdist=50
 #        lowestcourse = []
@@ -108,19 +115,19 @@ class search:
                     courselist1.append(i)
                     
                 ###June's added Code###
-        if not(section.upper() in self.section()):
-            return 'error'
-        else:
-            courselist2=[]
-            for i in courselist1:
-                if section == i.section():
-                    courselist2.append(i)
-        courselist1 = []
-        instrList = filter_by_instructor(instructor,courselist2)
-        ttlList = filter_by_title(title,courselist2)
-        courselist1.append(returnCourse(ttlList,instrList))
-            
-           
+#        if not(section.upper() in self.section()):
+#            return 'error'
+#        else:
+#            courselist2=[]
+#            for i in courselist1:
+#                if section == i.section():
+#                    courselist2.append(i)
+#        courselist1 = []
+#        instrList = filter_by_instructor(instructor,courselist2)
+#        ttlList = filter_by_title(title,courselist2)
+#        courselist1.append(returnCourse(ttlList,instrList))
+#            
+#           
         return courselist1
     
                     

@@ -101,7 +101,7 @@ class Course:
 #        return isTimeConflict
 
     def __str__(self):
-        return '~~~' + str(self.dayTime) + ' ' + str(self.typ) + ' '  + str(self.college) + ' ' + str(self.department) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.days)+' '+ str(self.section)+'~~~'
+        return '~~~' + str(self.dayTime) + ' ' + str(self.typ) + ' '  + str(self.college) + ' ' + str(self.department) + ' ' + str(self.courseNum) + " " + str(self.title) + " " + str(self.instructor)+' '+ str(self.section)+'~~~'
 
     def __repr__(self):
         return str(self)
