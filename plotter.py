@@ -6,7 +6,7 @@ Created on Wed Dec  9 23:31:35 2015
 """
 
 from tkinter import *
-def course_block_maker(all_poss = [(('chemistry',{'Mon':('8:30','10:00'),'Wed':('7:00','9:00')}),('physics',{'Tues':('8:00','9:00')})),(('Archeology',{'Sat':('5:30','6:30'),'Fri':('7:00','10:00')}),('Lit of Reptilian',{'Mon':('8:00','8:30'),'Wed':('7:00','8:30')}))]):
+def course_block_maker(all_poss = [(('chemistry',{'Mon':('8:30','9:00'),'Wed':('16:00','19:00')}),('physics',{'Tues':('8:00','9:00')})),(('Archeology',{'Sat':('17:30','18:30'),'Fri':('7:00','10:00')}),('Lit of Reptilian',{'Mon':('8:00','8:30'),'Wed':('7:00','8:30')}))]):
     root=Tk()
     
     option = StringVar()
@@ -17,7 +17,6 @@ def course_block_maker(all_poss = [(('chemistry',{'Mon':('8:30','10:00'),'Wed':(
     Entry(root,textvariable=option).grid(row=3)
     
     def call_grid():
-        root.destroy()
         graph=Tk()
        
         for r in range(17):
@@ -36,12 +35,14 @@ def course_block_maker(all_poss = [(('chemistry',{'Mon':('8:30','10:00'),'Wed':(
         time = ['7:00 am', '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 am', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm'] 
         for x in range(len(time)):
             Label(graph,text=time[x]).grid(rowspan=2, row=x,column=0)        
+ ################################################################################       
         
         colors=['red','blue','green','purple','yellow']
         week=['Sun','Mon','Tues','Wed','Thurs','Fri','Sat']
         selection = option.get()
         c=0
         for course in all_poss[int(selection)-1]:
+            print(course)
             title = course[0]
             days_times = course[1]
             for day in days_times:
@@ -55,11 +56,21 @@ def course_block_maker(all_poss = [(('chemistry',{'Mon':('8:30','10:00'),'Wed':(
                 end=timeend.split(':')
                 end=int(end[0])+int(end[1])*5/300
                 duration=(end-start)*2
-                if start%2 ==0:
-                    Label(graph,text=title, background=colors[c], height=int(duration), width=15).grid(column=col,row=int(start)-6,rowspan=int(duration),sticky=N)
+                print(start)
+                if start%2!=0 and end%2==0:
+                    Label(graph,text=title, background=colors[c], height=int(duration), width=15).grid(column=col,row=abs(int(start)-6),rowspan=abs(int(duration)),sticky=S)
+                elif start%2!=0 and end%2!=0:
+                    Label(graph,text=title, background=colors[c], height=int(duration), width=15).grid(column=col,row=abs(int(start)-6),rowspan=abs(int(duration)),sticky=S)
+                elif start%2==0 and end%2!=0:
+                    Label(graph,text=title, background=colors[c], height=int(duration), width=15).grid(column=col,row=abs(int(start)-6),rowspan=abs(int(duration)),sticky=N)
                 else:
-                    Label(graph,text=title, background=colors[c], height=int(duration), width=15).grid(column=col,row=int(start)-6,rowspan=abs(int(duration)),sticky=S)
+                    Label(graph,text=title, background=colors[c], height=int(duration), width=15).grid(column=col,row=abs(int(start)-6),rowspan=abs(int(duration)),sticky=N)
+                    
             c+=1
-               
+        graph.mainloop()
+    
+    Button(root,text='Enter',width=15, height=2, command=call_grid).grid(column=6, sticky=SE)
+    root.mainloop()   
+
             
 course_block_maker()
