@@ -48,7 +48,7 @@ def permutator(crs1,crs2,crs3,crs4):
         if name not in sched:
             sched[name] = [i]
         else:
-            if i in sched[name]:
+            if i not in sched[name]:
                 sched[name].append(i)
     try:
         for i in crs2:
@@ -56,7 +56,7 @@ def permutator(crs1,crs2,crs3,crs4):
             if name not in sched:
                 sched[name] = [i]
             else:
-                if i in sched[name]:
+                if i not in sched[name]:
                     sched[name].append(i)
     except:
         print('skipped2')
@@ -67,7 +67,7 @@ def permutator(crs1,crs2,crs3,crs4):
             if name not in sched:
                 sched[name] = [i]
             else:
-                if i in sched[name]:
+                if i not in sched[name]:
                     sched[name].append(i)
     except:
         print('skipped3')
@@ -78,7 +78,7 @@ def permutator(crs1,crs2,crs3,crs4):
             if name not in sched:
                 sched[name] = [i]
             else:
-                if i in sched[name]:
+                if i not in sched[name]:
                     sched[name].append(i)
     except:
         print('skipped4')
