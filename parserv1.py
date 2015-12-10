@@ -104,8 +104,17 @@ for i in newdata:
 
 
 if __name__=='__main__':
+    userinput=input_window.prompt_user()
+    print(userinput)
     k=scheduleclass.search(courselist)
     #print('the queue is '+str(len(k.queue))+' items long')
-    Permutator.permutator(k.finder('CAS','MA','226','',''),'','','')
+    ourclassinput1=k.finder(userinput['college'][0],userinput['department'][0],userinput['course'][0],userinput['section'][0],userinput['instructor'][0],userinput['Title'][0])
+    ourclassinput2=k.finder(userinput['college'][1],userinput['department'][1],userinput['course'][1],userinput['section'][1],userinput['instructor'][1],userinput['Title'][1])
+    ourclassinput3=k.finder(userinput['college'][2],userinput['department'][2],userinput['course'][2],userinput['section'][2],userinput['instructor'][2],userinput['Title'][2])
+    ourclassinput4=k.finder(userinput['college'][3],userinput['department'][3],userinput['course'][3],userinput['section'][3],userinput['instructor'][3],userinput['Title'][3])
+    possibleschedules=Permutator.permutator(ourclassinput1,ourclassinput2,ourclassinput3,ourclassinput4)
+    possibleschedules.sort(key=len)  
+    for i in possibleschedules:
+        print(i)
     #k.sortof('','','','','c')
 
